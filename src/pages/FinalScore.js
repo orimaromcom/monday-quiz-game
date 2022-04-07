@@ -11,6 +11,7 @@ import {
 } from "../redux/actions";
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const FinalScore = () => {
   const dispatch = useDispatch();
@@ -39,8 +40,11 @@ const FinalScore = () => {
           onClick={handleBackToSettings}
           variant="outlined"
         >
-          Back to home page!
+          Back to home page
         </button>
+        <Link to={"/leaderboard"} className="return">
+          Leaderboard
+        </Link>
       </div>
     </Fragment>
   );
