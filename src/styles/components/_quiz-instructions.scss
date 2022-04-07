@@ -1,0 +1,74 @@
+.instructions {
+    background-color: rgb(240, 245, 250);
+    border: 1px solid darken($off-white, 10%);
+    margin-top: $small;
+    margin-bottom: $large;
+    padding: $large;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+title {
+    font-weight: bold;
+    font-size: $large;
+    text-align: center;
+    color: black;
+    font-family: Quicksand;
+}
+
+.lifeline-icon {
+    color: rgb(211, 10, 10);
+    position: relative;
+    top: 6px;
+}
+
+.lightning-icon {
+    color: rgb(250, 225, 33);
+    position: relative;
+    top: 5px;
+}
+
+.browser-default {
+    padding-left: 180px;
+    padding-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.back-button-container {
+    width: 100%;
+}
+
+.back-button {
+    background: rgb(25, 100, 175);
+    border-radius: 5px;
+    color: white;
+    position: relative;
+    top: 20px;
+    left: 35%;
+
+    padding: $xs;
+    font-weight: bold;
+    font-family: "Quicksand";
+    cursor: pointer;
+
+    text-align: center;
+    transition: 0.1s linear all;
+}
+
+.back-button:hover {
+    background: darken(rgb(25, 63, 175), 10%);
+    box-shadow: $shadow;
+}
+
+img {
+    width: 80%;
+    height: 50%;
+}
+
+@media (max-width: $medium-breakpoint) {
+    .instructions img {
+        width: 100% !important;
+        height: 150% !important;
+    }
+}

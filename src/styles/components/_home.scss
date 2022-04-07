@@ -1,0 +1,136 @@
+#home {
+    background-image: url("../../assets/img/background3.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    height: 94vh;
+    width: 100vw;
+
+
+    section {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        margin-top: $small;
+        padding-top: $small;
+        padding-left: $medium;
+        padding-right: $medium;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // width: 35%;
+    }
+
+    .rocket-icon {
+        font-size: 8rem;
+        color: rgb(230, 141, 8);
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: $large;
+        text-align: center;
+        color: $off-white;
+        font-family: Quicksand;
+        text-shadow: 2px 2px teal;
+        color: white;
+    }
+
+    .play-button-container {
+
+        font-weight: bold;
+        margin: 0;
+        font-family: "Quicksand";
+        color: #333;
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    a.play-button {
+        background: rgb(25, 63, 175);
+        border-radius: 5px;
+        color: white;
+        display: block;
+        cursor: pointer;
+        padding: $xs;
+        text-align: center;
+        transition: 0.1s linear all;
+        margin-top: 10px;
+
+
+
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    a.play-button:hover {
+        background: darken(rgb(56, 56, 204), 10%);
+        box-shadow: $shadow;
+    }
+
+    .auth-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: $small;
+    }
+
+    #login-button {
+        background-color: red;
+    }
+
+    #login-button:hover {
+        background-color: darken(red, 10%);
+        box-shadow: $shadow;
+    }
+
+    #signup-button {
+        background-color: green;
+    }
+
+    #signup-button:hover {
+        background-color: darken(green, 10%);
+        box-shadow: $shadow;
+    }
+
+    #instructions-button {
+        background-color: rgb(153, 161, 153);
+    }
+
+    #instructions-button:hover {
+        background-color: darken(rgb(153, 161, 153), 10%);
+        box-shadow: $shadow;
+    }
+
+    .auth-buttons {
+        flex: 1 0 auto;
+        font-family: "Quicksand";
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: $xs;
+        text-align: center;
+        width: 33%;
+        transition: 0.1s linear all;
+        //min-width: fit-content;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    @media (max-width: 600px) {
+        /* * {
+            border: 1px red solid;
+        } */
+
+        #section {
+            padding: 0 $normal;
+            width: 100% !important;
+
+        }
+    }
+}

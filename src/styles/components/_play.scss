@@ -1,38 +1,102 @@
 .questions {
-    background-image: url("../../assets/img/B.jpg");
+    // background-image: url("../../assets/img/L.jpg");
     background-size: cover;
     background-position: center;
+    background-color: lightblue;
 
 
-    background-color: $off-white;
-    border-left: 5px solid lightblue;
-    border-right: 5px solid lightblue;
+    border-left: 10px solid lightblue;
+    border-right: 15px solid lightblue;
     width: 80%;
+
     margin: $large auto 0 auto;
-    padding: $small $medium;
-
+    padding: $small $xs;
+    padding-left: 5%;
+    padding-right: 1%;
 }
 
-.url {
-    opacity: 0.5;
-}
+
 
 h2 {
     text-align: center;
     font-family: Quicksand;
     font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-family: Quicksand;
 
+
+    border-radius: 5px;
+    background-size: 10px;
+    justify-content: space-between;
+    border: 2px;
+
+
+    background-position: right;
+}
+
+.title {
+    background-color: rgb(7, 7, 8);
 }
 
 .lifeline-container {
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Quicksand;
 }
 
-.lightning {
+.lifeline-icon {
+    color: red;
+    cursor: pointer;
+
+}
+
+.lifeline-icon:hover {
+    cursor: pointer;
+    color: darken(red, 10%);
+}
+
+.lightning-icon {
     position: relative;
     text-align: left;
+    color: rgb(255, 221, 29);
+
 }
+
+.lightning-icon:hover {
+    cursor: pointer;
+    color: darken(rgb(255, 221, 29), 10%);
+}
+
+.right {
+    font-family: Quicksand;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.score {
+    text-align: center;
+
+    position: relative;
+
+    top: -30px;
+    font-family: Quicksand;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+
+}
+
+.questionNumber {
+    display: flex;
+    font-size: 17px;
+    position: relative;
+    right: 5rem;
+    float: right
+}
+
+
 
 h5 {
     font-size: 2rem;
@@ -41,37 +105,60 @@ h5 {
     margin-bottom: $large;
     line-height: 1.5;
     text-align: center;
+    height: 90px;
 }
 
 .options-container {
+    height: 240px;
+}
+
+.option-container {
+    display: flex;
     display: inline-block;
     width: 50%;
-    margin: $xlarge auto;
+
+    margin: $small auto;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+
+}
+
+.option-container button {
+    background-color: darken(rgb(56, 56, 204), 10%);
+    box-shadow: $shadow;
+    transition: 0.1s linear all
+}
+
+.option-container button:hover {
+    background-color: darken(rgb(56, 56, 204), 20%);
 }
 
 .option {
-    background-color: rgb(56, 56, 204);
-    border-radius: $button-radius;
+    background-color: darken(rgb(56, 56, 204), 10%);
+    border-radius: 10px;
     font-family: Quicksand;
+    font-size: large;
     color: white;
     font-weight: bold;
-    margin: $medium auto;
+    margin: $xs auto;
     cursor: pointer;
-    padding: $normal;
-    transition: 0.1s linear all;
+    padding: $small;
     text-align: center;
     width: 90%;
+    display: flex;
+    border: none !important;
+
+
 }
 
-.option:hover {
-    background-color: darken(rgb(56, 56, 204), 20%);
-}
 
 .button-container {
 
     display: flex;
     justify-content: flex-start;
-
+    position: relative;
+    left: -20px;
     width: 70vw;
     margin-top: $small;
     margin: 0 auto $small auto;
@@ -94,23 +181,23 @@ h5 {
 }
 
 .button-container button:first-child {
-    background-color: darken(rgb(56, 56, 204), 10%);
+    background-color: darken(rgb(56, 204, 120), 10%);
     box-shadow: $shadow;
     transition: 0.1s linear all
 }
 
 .button-container button:first-child:hover {
-    background-color: darken(rgb(56, 56, 204), 20%);
+    background-color: darken(rgb(56, 204, 120), 20%);
 }
 
 .button-container button:nth-child(2) {
-    background-color: darken(rgb(31, 194, 107), 10%);
+    background-color: darken(rgb(56, 204, 120), 10%);
     box-shadow: $shadow;
     transition: 0.1s linear all
 }
 
 .button-container button:nth-child(2):hover {
-    background-color: darken(rgb(31, 194, 107), 20%);
+    background-color: darken(rgb(56, 204, 120), 20%);
 }
 
 .button-container button:nth-child(3) {
@@ -123,6 +210,9 @@ h5 {
     background-color: darken(rgb(243, 67, 67), 20%);
 }
 
-/* body {
-  background-color: red;
-} */
+.button-container .quit {
+    //background-color: darken(rgb(243, 67, 67), 10%);
+    //color: red;
+    box-shadow: $shadow;
+    transition: 0.1s linear all
+}

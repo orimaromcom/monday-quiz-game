@@ -1,13 +1,17 @@
 import React, { Fragment } from "react";
+import { Button, CircularProgress, Typography, Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import RocketIcon from "mdi-react/RocketLaunchIcon";
 import { Link } from "react-router-dom";
-import GlobeTest from "./GlobeTest"; //for later usage
+import { useEffect } from "react";
+import { handleScoreChange } from "../redux/actions";
+import { handleHintsChange } from "../redux/actions";
+import { handleLifelinesChange } from "../redux/actions";
 
 const Home = () => (
   <Fragment>
     <Helmet>
-      <title>Ori monday quiz - Home Pge</title>
+      <title>monday quiz - Home Page</title>
     </Helmet>
     <div id="home">
       <section>
@@ -21,6 +25,9 @@ const Home = () => (
             <li>
               <Link className="play-button" to="/play">
                 Play
+              </Link>
+              <Link className="play-button" to="/settings">
+                Select Questions
               </Link>
             </li>
           </ul>

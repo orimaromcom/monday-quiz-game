@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import LifebuoyIcon from "mdi-react/LifebuoyIcon";
 import LightningIcon from "mdi-react/LightningBoltIcon";
-import imageNum1 from "../../assets/img/imageNum1.jpg";
-import imageNum2 from "../../assets/img/imageNum2.jpg";
-import imageNum3 from "../../assets/img/imageNum3.jpg";
-import imageNum4 from "../../assets/img/imageNum4.jpg";
+import imageNum1 from "../assets/img/imageNum1.jpg";
+import imageNum2 from "../assets/img/imageNum2.jpg";
+import imageNum3 from "../assets/img/imageNum3.jpg";
+import imageNum4 from "../assets/img/imageNum4.jpg";
 
 const QuizInstructions = () => (
   <Fragment>
@@ -14,8 +14,7 @@ const QuizInstructions = () => (
       <title>Instructions Page</title>
     </Helmet>
     <div className="instructions container">
-      <h1>How to play the game</h1>
-      <p></p>
+      <div className="title">How to play the game</div>
       <ul className="browser-default" id="main-list">
         <li>The game is 10 minutes bla bla bla</li>
         <li>The game has 10 questions</li>
