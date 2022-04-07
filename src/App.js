@@ -7,7 +7,7 @@ import FinalScore from "./pages/FinalScore";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "@mui/material";
 import { Box } from "@mui/system";
-import { Leaderboard } from "./pages/Leaderboard";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
   return (

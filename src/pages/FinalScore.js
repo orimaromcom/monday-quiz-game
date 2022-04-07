@@ -9,14 +9,20 @@ import {
   handleHintsChange,
   handleLifelinesChange,
 } from "../redux/actions";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import useGlobalTimer from "../hooks/useGlobalTimer";
 
 const FinalScore = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { score } = useSelector((state) => state);
+  const { stop } = useGlobalTimer();
+
+  useEffect(() => {
+    stop();
+  }, []);
 
   const handleBackToSettings = () => {
     dispatch(handleScoreChange(0));
