@@ -1,15 +1,8 @@
-TODO:
+# Monday Quiz Game By Ori Marom
+I'm developing the best quiz game you'll ever see! please accept me to your accademy. I make also great coffee, and I'll be awesome addition to your team 😁
 
-1. handle 50 50 bug, try to solve it with redux
-2. try to solve the design change when doing it
-3. fix button highlight after answering the question
-4. find a better UI library
-5. implement a timer for each question
-6. add hints
-7. make sure that lifelines are counted down when used
-8. change the scoring system
-9. add statistics
-10. add sounds
-11. make the design unified across the application
-12. change the instruction page
-13. decide what to do with the login/signup
+## Getting Started
+clone this repo, `yarn && yarn start` 🚀
+
+## Author
+Ori Marom <ori.marom10@gmail.com>
