@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import useAxios from "../hooks/useAxios";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
-import { handleScoreChange } from "../redux/actions";
+import { handleGameStart, handleScoreChange } from "../redux/actions";
 import { handleHintsChange } from "../redux/actions";
 import { handleLifelinesChange } from "../redux/actions";
 import { decode } from "html-entities";
@@ -76,6 +76,10 @@ const Play = () => {
       dispatch(handleHintsChange(hints));
     }
   }, [response, questionIndex]);
+
+  useEffect(() => {
+    dispatch(handleGameStart(Date.now()));
+  });
 
   if (loading) {
     return (
@@ -189,52 +193,57 @@ const Play = () => {
         <div className="title"></div>
         <h2>monday quiz</h2>
         <div />
-        <div className="lifeline-container">
-          <p>
-            <span>
-              <LifebuoyIcon
-                onClick={split}
-                className="lifeline-icon"
-                size={40}
-              />
-              {lifelines}
-            </span>
-            <span>
-              <LightningIcon
-                onClick={hint}
-                className="lightning-icon"
-                size={40}
-              />
-              {hints}
-            </span>
-          </p>
-          <p>
-            <span>
-              <span className="lightning"></span>
-            </span>
-          </p>
-          <div
-            style={{
-              display: "flex",
-              position: "relative",
-              left: "-70px",
-              top: "8px",
-            }}
-          >
-            <TimerIcon className="timer-icon" size={40} />
-            <span
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginLeft: "5px",
-                height: "40px",
-                width: "12px",
-              }}
+        <div className="">
+          <div className="row-container">
+            <p>
+              <span>
+                <LifebuoyIcon
+                  onClick={split}
+                  className="lifeline-icon"
+                  size={40}
+                />
+                {lifelines}
+              </span>
+              <span>
+                <LightningIcon
+                  onClick={hint}
+                  className="lightning-icon"
+                  size={40}
+                />
+                {hints}
+              </span>
+            </p>
+            <p>
+              <span>
+                <span className="lightning"></span>
+              </span>
+            </p>
+            <div
+              style={
+                {
+                  // display: "flex",
+                  // position: "relative",
+                  // left: "-70px",
+                  // top: "8px",
+                }
+              }
             >
-              {currentCount}
-            </span>
+              <TimerIcon className="timer-icon" size={40} />
+              <span
+                style={{
+                  // display: "flex",
+                  // alignItems: "center",
+                  marginLeft: "7px",
+                  height: "40px",
+                  width: "12px",
+                }}
+              >
+                {currentCount}
+              </span>
+            </div>
           </div>
         </div>
+
         <div>
           <p>
             <span className="questionNumber">

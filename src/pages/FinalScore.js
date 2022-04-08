@@ -9,6 +9,7 @@ import {
   handleHintsChange,
   handleLifelinesChange,
 } from "../redux/actions";
+// import { getStartTime } from "./Play";
 import React, { Fragment, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
@@ -17,12 +18,22 @@ import useGlobalTimer from "../hooks/useGlobalTimer";
 const FinalScore = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { score } = useSelector((state) => state);
-  const { stop } = useGlobalTimer();
+  const { score, startTime } = useSelector((state) => state);
+  const { stop, getDuration } = useGlobalTimer();
 
+  // Tried to implement game started logic
   useEffect(() => {
+    console.log(startTime);
+    let endTime = Date.now();
+    console.log(endTime);
+    let gameDuration = endTime - startTime;
+    gameDuration /= 1000;
+    var seconds = Math.round(gameDuration);
+    console.log(seconds + " seconds");
+    console.log("Total game duartion" + gameDuration);
     stop();
   }, []);
+  // Tried to implement game started logic
 
   const handleBackToSettings = () => {
     dispatch(handleScoreChange(0));

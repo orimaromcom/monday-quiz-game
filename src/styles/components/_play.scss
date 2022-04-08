@@ -58,7 +58,7 @@ h2 {
 }
 
 .lightning-icon {
-    position: relative;
+    // position: relative;
     text-align: left;
     color: rgb(255, 221, 29);
 
@@ -108,12 +108,29 @@ h5 {
     height: 90px;
 }
 
+.row-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 620px) {
+
+    .lifeline-container,
+    .lightning-container,
+    .score {
+        position: static;
+    }
+}
+
 .options-container {
     height: 240px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .option-container {
     display: flex;
+    justify-content: center;
     display: inline-block;
     width: 50%;
 
@@ -148,8 +165,6 @@ h5 {
     width: 90%;
     display: flex;
     border: none !important;
-
-
 }
 
 

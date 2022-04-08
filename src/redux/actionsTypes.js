@@ -5,3 +5,4 @@ export const CHANGE_AMOUNT = "CHANGE_AMOUNT";
 export const CHANGE_SCORE = "CHANGE_SCORE";
 export const CHANGE_HINTS = "CHANGE_HINTS";
 export const CHANGE_LIFELINES = "CHANGE_LIFELINES";
+export const GAME_STARTED = "GAME_STARTED";

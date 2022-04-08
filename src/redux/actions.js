@@ -6,6 +6,7 @@ import {
   CHANGE_SCORE,
   CHANGE_HINTS,
   CHANGE_LIFELINES,
+  GAME_STARTED,
 } from "./actionsTypes";
 
 export const handleCategoryChange = (payload) => ({
@@ -40,5 +41,10 @@ export const handleHintsChange = (payload) => ({
 
 export const handleLifelinesChange = (payload) => ({
   type: CHANGE_LIFELINES,
+  payload,
+});
+
+export const handleGameStart = (payload) => ({
+  type: GAME_STARTED,
   payload,
 });

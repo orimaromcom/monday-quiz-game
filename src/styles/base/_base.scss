@@ -13,8 +13,6 @@ body {
   background-color: green;
   border-radius: 5px;
   font-weight: bold;
-  // top: auto !important;
-  //right: auto !important;
   bottom: 100%;
   left: 0%;
 }
@@ -23,21 +21,12 @@ body {
   background-color: red;
   border-radius: 5px;
   font-weight: bold;
-
-  top: auto !important;
-  right: auto !important;
-  bottom: 5%;
-  left: 100%;
-
 }
 
 #toast-container {
-  top: auto !important;
-  right: auto !important;
-  //bottom: 78%;
-
-  bottom: 45rem;
-  left: 48rem;
+  width: 100px;
+  top: 10%;
+  right: 20%;
 }
 
 p.final {

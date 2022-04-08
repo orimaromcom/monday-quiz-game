@@ -15,7 +15,7 @@ export default function Leaderboard() {
   const history = useHistory();
   const [inputUsername, setInputUsername] = useState("");
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const { score } = useSelector((state) => state);
+  const { score, hints } = useSelector((state) => state);
   const { getDuration } = useGlobalTimer();
 
   const handleBackToSettings = () => {
@@ -33,31 +33,68 @@ export default function Leaderboard() {
   const refreshLeaderboardData = async () => {
     const items = [];
     await localforage.iterate((value) => {
-      items.push({ ...value, score: Number(value.score) });
+      items.push({
+        ...value,
+        score: Number(value.score),
+        hints: Number(value.hintsCount),
+      });
     });
     items.sort((item1, item2) => item2.score - item1.score);
     setLeaderboardData(items);
   };
 
-  const handleSaveToLeaderboard = () => {
+  const handleSaveToLeaderboard = async () => {
     let username, hintsCount, durationSeconds;
+
+    document.getElementById("save-button").style.visibility = "hidden";
 
     //fill them
     username = inputUsername;
     durationSeconds = getDuration();
+    hintsCount = hints;
 
-    //save to db
-    localforage
-      .setItem(username, {
-        username,
-        score,
-        hintsCount,
-        durationSeconds,
-      })
-      .then(() => {
-        //refresh leaderboard data from db
-        refreshLeaderboardData();
+    const items = [];
+    await localforage.iterate((value) => {
+      items.push({
+        ...value,
+        score: Number(value.score),
+        hints: Number(value.hintsCount),
       });
+    });
+
+    items.sort((item1, item2) => item2.score - item1.score);
+
+    if (items.length < 10) {
+      //save to db
+      localforage
+        .setItem(username, {
+          username,
+          score,
+          hintsCount,
+          durationSeconds,
+        })
+        .then(() => {
+          //refresh leaderboard data from db
+          refreshLeaderboardData();
+        });
+    } else {
+      let worstPlayer = items[items.length - 1];
+
+      if (score >= worstPlayer.score) {
+        //remove worst user from list
+        localforage.removeItem(worstPlayer.username).then(() => {
+          // Save my score instead
+          localforage.setItem(username, {
+            username,
+            score,
+            hintsCount,
+            durationSeconds,
+          });
+          //refresh leaderboard data from db
+          refreshLeaderboardData();
+        });
+      }
+    }
   };
 
   return (
@@ -71,7 +108,9 @@ export default function Leaderboard() {
             value={inputUsername}
             onChange={(evt) => setInputUsername(evt.target.value)}
           />
-          <button onClick={handleSaveToLeaderboard}>Save</button>
+          <button id="save-button" onClick={handleSaveToLeaderboard}>
+            Save
+          </button>
         </div>
       </header>
       <article>
