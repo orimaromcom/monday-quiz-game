@@ -10,7 +10,6 @@ import { handleLifelinesChange } from "../redux/actions";
 import useGlobalTimer from "../hooks/useGlobalTimer";
 
 const Home = () => {
-  const { start } = useGlobalTimer();
   return (
     <Fragment>
       <Helmet>
@@ -29,7 +28,6 @@ const Home = () => {
                 <Link
                   className="play-button"
                   to="/play"
-                  onClick={() => start()}
                 >
                   Play
                 </Link>

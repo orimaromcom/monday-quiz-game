@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react";
+import React, { Fragment } from "react";
 import { CircularProgress, Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import LifebuoyIcon from "mdi-react/LifebuoyIcon";
@@ -19,6 +19,7 @@ import correctNotification from "../assets/sounds/correct-answer2.wav";
 import wrongNotification from "../assets/sounds/wrong-answer.wav";
 import timeoutNotification from "../assets/sounds/timeout.wav";
 import SwitchButton from "../components/SwitchButton";
+import useGlobalTimer from "../hooks/useGlobalTimer";
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
@@ -49,19 +50,22 @@ const Play = () => {
   const [backgroundColor, setBackgroundColor] = useState("blue");
   const [selectedButton, setSelectedButton] = useState(null);
   const [isAudioOn, setIsAudioOn] = useState(true);
-  const playAudio = useCallback(
-    (audioElementKey) => {
-      if (!isAudioOn) return;
-      document.getElementById(audioElementKey).play();
-    },
-    [isAudioOn]
-  );
+
+  const { start } = useGlobalTimer();
+  useEffect(() => {
+    start();
+  }, []);
+
+  const playAudio = (audioElementKey) => {
+    if (!isAudioOn) return;
+    document.getElementById(audioElementKey).play();
+  };
 
   const [options, setOptions] = useState([]);
 
   const [currentCount, setCount] = useState(10);
   const timer = () => setCount(currentCount - 1);
-  let counter = 15;
+  let counter = 30;
   useEffect(() => {
     if (currentCount <= 0) {
       handleClickAnswer(undefined, true);
@@ -90,7 +94,7 @@ const Play = () => {
 
   useEffect(() => {
     dispatch(handleGameStart(Date.now()));
-  });
+  }, []);
 
   if (loading) {
     return (
