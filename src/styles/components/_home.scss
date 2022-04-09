@@ -73,6 +73,10 @@
         box-shadow: $shadow;
     }
 
+    #select-questions {
+        background: green;
+    }
+
     .auth-container {
         width: 100%;
         display: flex;
@@ -83,7 +87,7 @@
 
 
     #instructions-button {
-        background-color: rgb(153, 161, 153);
+        background-color: rgb(230, 141, 8);
     }
 
     #instructions-button:hover {

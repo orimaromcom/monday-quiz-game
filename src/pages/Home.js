@@ -25,15 +25,16 @@ const Home = () => {
           <div className="play-button-container">
             <ul>
               <li>
-                <Link
-                  className="play-button"
-                  to="/play"
-                >
+                <Link className="play-button" to="/play">
                   Play
                 </Link>
               </li>
               <li>
-                <Link className="play-button" to="/settings">
+                <Link
+                  className="play-button"
+                  id="select-questions"
+                  to="/settings"
+                >
                   Select Questions
                 </Link>
               </li>
