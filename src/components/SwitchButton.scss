@@ -7,11 +7,11 @@ input[type=checkbox] {
 label {
 	cursor: pointer;
 	text-indent: -9999px;
-	width: 200px;
-	height: 100px;
+	width: 4rem;
+	height: 2rem;
 	background: grey;
 	display: block;
-	border-radius: 100px;
+	border-radius: 2rem;
 	position: relative;
 }
 
@@ -20,8 +20,8 @@ label:after {
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	width: 90px;
-	height: 90px;
+	width: 1.2rem;
+	height: 1.2rem;
 	background: #fff;
 	border-radius: 90px;
 	transition: 0.3s;

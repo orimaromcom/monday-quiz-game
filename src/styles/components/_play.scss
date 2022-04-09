@@ -237,3 +237,9 @@ h5 {
     box-shadow: $shadow;
     transition: 0.1s linear all
 }
+
+.audio-switch {
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+}

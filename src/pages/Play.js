@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useCallback } from "react";
 import { Button, CircularProgress, Typography, Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import LifebuoyIcon from "mdi-react/LifebuoyIcon";
@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import correctNotification from "../assets/sounds/correct-answer2.wav";
 import wrongNotification from "../assets/sounds/wrong-answer.wav";
 import timeoutNotification from "../assets/sounds/timeout.wav";
+import SwitchButton from "../components/SwitchButton";
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
@@ -47,6 +48,14 @@ const Play = () => {
   const [questionIndex, setPlayIndex] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState("blue");
   const [selectedButton, setSelectedButton] = useState(null);
+  const [isAudioOn, setIsAudioOn] = useState(true);
+  const playAudio = useCallback(
+    (audioElementKey) => {
+      if (!isAudioOn) return;
+      document.getElementById(audioElementKey).play();
+    },
+    [isAudioOn]
+  );
 
   const [options, setOptions] = useState([]);
 
@@ -103,7 +112,7 @@ const Play = () => {
     if (timeOver) {
       if (questionIndex + 1 < response.results.length) {
         setPlayIndex(questionIndex + 1);
-        document.getElementById("timeout").play();
+        playAudio("timeout");
         M.toast({
           html: "Timeout!",
           classes: "toast-invalid",
@@ -128,14 +137,14 @@ const Play = () => {
       }
 
       setBackgroundColor("green");
-      document.getElementById("correct-answer").play();
+      playAudio("correct-answer");
       setTimeout(() => {
         setBackgroundColor("rgb(56, 56, 204)");
       }, 500);
     } else {
       setBackgroundColor("red");
 
-      document.getElementById("wrong-answer").play();
+      playAudio("wrong-answer");
       setTimeout(() => {
         setBackgroundColor("rgb(56, 56, 204)");
       }, 500);
@@ -187,117 +196,136 @@ const Play = () => {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>Quiz Page</title>
-      </Helmet>
-      <audio id="correct-answer" src={correctNotification}></audio>
-      <audio id="wrong-answer" src={wrongNotification}></audio>
-      <audio id="timeout" src={timeoutNotification}></audio>
-      <div className="questions">
-        <div className="title"></div>
-        <h2>monday quiz</h2>
-        <div />
-        <div className="">
-          <div className="row-container">
-            <p>
-              <span>
-                <LifebuoyIcon
-                  onClick={split}
-                  className="lifeline-icon"
-                  size={40}
-                />
-                {lifelines}
-              </span>
-              <span>
-                <LightningIcon
-                  onClick={hint}
-                  className="lightning-icon"
-                  size={40}
-                />
-                {hints}
-              </span>
-            </p>
-            <p>
-              <span>
-                <span className="lightning"></span>
-              </span>
-            </p>
-            <div
-              style={
-                {
-                  // display: "flex",
-                  // position: "relative",
-                  // left: "-70px",
-                  // top: "8px",
+      <>
+        {/* hidden items */}
+        <Helmet>
+          <title>Quiz Page</title>
+        </Helmet>
+        <audio id="correct-answer" src={correctNotification}></audio>
+        <audio id="wrong-answer" src={wrongNotification}></audio>
+        <audio id="timeout" src={timeoutNotification}></audio>
+      </>
+
+      <section className="questions">
+        <header>
+          <span className="audio-switch">
+            {isAudioOn ? "🔉" : "🔇"}
+            <SwitchButton
+              className={"audio-switch-button"}
+              checked={isAudioOn}
+              onChange={(evt) => {
+                console.log(evt);
+                setIsAudioOn(evt.target.checked);
+              }}
+            />
+          </span>
+          <div className="title"></div>
+          <h2>monday quiz</h2>
+          <div />
+          <div className="">
+            <div className="row-container">
+              <p>
+                <span>
+                  <LifebuoyIcon
+                    onClick={split}
+                    className="lifeline-icon"
+                    size={40}
+                  />
+                  {lifelines}
+                </span>
+                <span>
+                  <LightningIcon
+                    onClick={hint}
+                    className="lightning-icon"
+                    size={40}
+                  />
+                  {hints}
+                </span>
+              </p>
+              <p>
+                <span>
+                  <span className="lightning"></span>
+                </span>
+              </p>
+              <div
+                style={
+                  {
+                    // display: "flex",
+                    // position: "relative",
+                    // left: "-70px",
+                    // top: "8px",
+                  }
                 }
-              }
-            >
-              <TimerIcon className="timer-icon" size={40} />
-              <span
-                style={{
-                  // display: "flex",
-                  // alignItems: "center",
-                  marginLeft: "7px",
-                  height: "40px",
-                  width: "12px",
-                }}
               >
-                {currentCount}
-              </span>
+                <TimerIcon className="timer-icon" size={40} />
+                <span
+                  style={{
+                    // display: "flex",
+                    // alignItems: "center",
+                    marginLeft: "7px",
+                    height: "40px",
+                    width: "12px",
+                  }}
+                >
+                  {currentCount}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div>
-          <p>
-            <span className="questionNumber">
-              {questionIndex + 1} of {amount_of_question}
-            </span>
-          </p>
-        </div>
-        <div className="lifelines"></div>
-        <div className="score">
-          Score: {score} / {response.results.length}
-        </div>
-        <h5>{decode(response.results[questionIndex].question)}</h5>
-        <div className="options-container">
-          {options.map((data) => (
-            <div key={data} className="option-container">
+          <div>
+            <p>
+              <span className="questionNumber">
+                {questionIndex + 1} of {amount_of_question}
+              </span>
+            </p>
+          </div>
+          <div className="lifelines"></div>
+          <div className="score">
+            Score: {score} / {response.results.length}
+          </div>
+          <h5>{decode(response.results[questionIndex].question)}</h5>
+        </header>
+        <article>
+          <div className="options-container">
+            {options.map((data) => (
+              <div key={data} className="option-container">
+                <button
+                  onClick={(e) => {
+                    setSelectedButton(data);
+                    handleClickAnswer(e);
+                  }}
+                  variant="contained"
+                  className="option"
+                  style={{
+                    backgroundColor:
+                      data === selectedButton
+                        ? backgroundColor
+                        : "rgb(56, 56, 204)",
+                  }}
+                >
+                  <p>{decode(data)}</p>
+                </button>
+              </div>
+            ))}
+          </div>
+        </article>
+        <footer>
+          <div className="button-container">
+            <button onClick={split}>50:50</button>
+            <button onClick={hint}>Hint</button>
+            <Link to="/">
               <button
-                onClick={(e) => {
-                  setSelectedButton(data);
-                  handleClickAnswer(e);
-                }}
-                variant="contained"
-                className="option"
                 style={{
-                  backgroundColor:
-                    data === selectedButton
-                      ? backgroundColor
-                      : "rgb(56, 56, 204)",
+                  backgroundColor: " red",
                 }}
+                className="quit"
               >
-                <p>{decode(data)}</p>
+                Quit
               </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="button-container">
-          <button onClick={split}>50:50</button>
-          <button onClick={hint}>Hint</button>
-          <Link to="/">
-            <button
-              style={{
-                backgroundColor: " red",
-              }}
-              className="quit"
-            >
-              Quit
-            </button>
-          </Link>
-        </div>
-      </div>
+            </Link>
+          </div>
+        </footer>
+      </section>
     </Fragment>
   );
 };
