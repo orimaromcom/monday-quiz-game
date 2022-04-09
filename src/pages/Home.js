@@ -1,12 +1,8 @@
 import React, { Fragment } from "react";
-import { Button, CircularProgress, Typography, Box } from "@mui/material";
+
 import { Helmet } from "react-helmet";
 import RocketIcon from "mdi-react/RocketLaunchIcon";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { handleScoreChange } from "../redux/actions";
-import { handleHintsChange } from "../redux/actions";
-import { handleLifelinesChange } from "../redux/actions";
 import useGlobalTimer from "../hooks/useGlobalTimer";
 
 const Home = () => {

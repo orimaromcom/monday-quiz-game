@@ -118,6 +118,7 @@ h5 {
     height: 200px;
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .option-container {
@@ -131,6 +132,7 @@ h5 {
     box-shadow: none;
     background-color: transparent;
     height: 80px;
+    text-align: center;
 
 }
 
@@ -139,6 +141,7 @@ h5 {
     box-shadow: $shadow;
     transition: 0.1s linear all;
     height: 100%;
+    text-align: center;
 
 
 }
