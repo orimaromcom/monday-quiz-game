@@ -86,7 +86,7 @@ export default function Leaderboard() {
               <th>Username</th>
               <th>Score</th>
               <th>Hints</th>
-              <th>Time</th>
+              <th>Time [seconds]</th>
             </tr>
           </thead>
           <tbody>

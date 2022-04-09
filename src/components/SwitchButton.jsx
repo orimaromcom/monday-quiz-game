@@ -1,9 +1,10 @@
+import classNames from "classnames";
 import React from "react";
-import "./SwitchButton.scss";
+import styles from "./SwitchButton.module.scss";
 
 export default function SwitchButton({ checked, onChange, className }) {
   return (
-    <span className={className}>
+    <span className={classNames(styles["switch-button"], className)}>
       <input
         type="checkbox"
         id="switch"
