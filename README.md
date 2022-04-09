@@ -2,7 +2,7 @@
 
 # Monday Quiz Game By Ori Marom
 
-I'm developing the best quiz game you'll ever see! please accept me to your accademy. I make also great coffee, and I'll be awesome addition to your team 😁
+I'm developing the best quiz game you'll ever see! I also make great coffee, and I'll be  an awesome addition to your team 😁
 
 ## Getting Started
 
