@@ -17,6 +17,7 @@ import { constructAPICallURL } from "../utils";
 import { Link } from "react-router-dom";
 import correctNotification from "../assets/sounds/correct-answer2.wav";
 import wrongNotification from "../assets/sounds/wrong-answer.wav";
+import timeoutNotification from "../assets/sounds/timeout.wav";
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
@@ -58,6 +59,7 @@ const Play = () => {
       return;
     }
     const id = setInterval(timer, 1000);
+
     return () => clearInterval(id);
   }, [currentCount]);
 
@@ -101,6 +103,7 @@ const Play = () => {
     if (timeOver) {
       if (questionIndex + 1 < response.results.length) {
         setPlayIndex(questionIndex + 1);
+        document.getElementById("timeout").play();
         M.toast({
           html: "Timeout!",
           classes: "toast-invalid",
@@ -189,6 +192,7 @@ const Play = () => {
       </Helmet>
       <audio id="correct-answer" src={correctNotification}></audio>
       <audio id="wrong-answer" src={wrongNotification}></audio>
+      <audio id="timeout" src={timeoutNotification}></audio>
       <div className="questions">
         <div className="title"></div>
         <h2>monday quiz</h2>

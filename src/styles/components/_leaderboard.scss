@@ -1,0 +1,19 @@
+body {
+    font-family: "Quicksand";
+
+
+}
+
+h1 {
+    font-family: "Quicksand";
+    font-weight: bold;
+    font-size: 40px;
+
+
+    @media (max-width: 4330px) {
+
+
+        position: static;
+
+    }
+}

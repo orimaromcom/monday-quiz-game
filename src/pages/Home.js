@@ -33,28 +33,26 @@ const Home = () => {
                 >
                   Play
                 </Link>
+              </li>
+              <li>
                 <Link className="play-button" to="/settings">
                   Select Questions
                 </Link>
               </li>
+              <li>
+                {" "}
+                <div className="auth-container">
+                  <Link
+                    to="/instructions"
+                    className="auth-buttons"
+                    id="instructions-button"
+                  >
+                    Instructions
+                  </Link>
+                </div>
+              </li>
             </ul>
           </div>
-          <div className="auth-container">
-            <Link to="/login" className="auth-buttons" id="login-button">
-              Login
-            </Link>
-            <Link to="/signup" className="auth-buttons" id="signup-button">
-              Sign up
-            </Link>
-            <Link
-              to="/instructions"
-              className="auth-buttons"
-              id="instructions-button"
-            >
-              Instructions
-            </Link>
-          </div>
-          <div></div>
         </section>
       </div>
     </Fragment>

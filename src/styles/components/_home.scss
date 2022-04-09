@@ -4,14 +4,14 @@
     background-position: center;
     display: flex;
     justify-content: space-around;
-    height: 94vh;
+    height: 100vh;
     width: 100vw;
 
 
     section {
         background-color: rgba(0, 0, 0, 0.7);
         border-radius: 5px;
-        margin-top: $small;
+        margin-top: 5vh;
         padding-top: $small;
         padding-left: $medium;
         padding-right: $medium;
@@ -35,6 +35,7 @@
         font-family: Quicksand;
         text-shadow: 2px 2px teal;
         color: white;
+        height: 30vh;
     }
 
     .play-button-container {
@@ -44,6 +45,7 @@
         font-family: "Quicksand";
         color: #333;
         width: 100%;
+        height: 80vh;
 
         flex-direction: column;
     }
@@ -79,23 +81,7 @@
         margin-top: $small;
     }
 
-    #login-button {
-        background-color: red;
-    }
 
-    #login-button:hover {
-        background-color: darken(red, 10%);
-        box-shadow: $shadow;
-    }
-
-    #signup-button {
-        background-color: green;
-    }
-
-    #signup-button:hover {
-        background-color: darken(green, 10%);
-        box-shadow: $shadow;
-    }
 
     #instructions-button {
         background-color: rgb(153, 161, 153);

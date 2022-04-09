@@ -1,18 +1,19 @@
 .questions {
     // background-image: url("../../assets/img/L.jpg");
-    background-size: cover;
-    background-position: center;
+    //background-size: cover;
+    // background-position: center;
     background-color: lightblue;
 
 
-    border-left: 10px solid lightblue;
-    border-right: 15px solid lightblue;
-    width: 80%;
+    //border-left: 10px solid lightblue;
+    // border-right: 15px solid lightblue;
+    //width: 80%;
 
-    margin: $large auto 0 auto;
-    padding: $small $xs;
-    padding-left: 5%;
-    padding-right: 1%;
+    //  margin: $xs auto 0 auto;
+    // padding: ;
+    // padding-left: 5%;
+    // padding-right: 1%;
+    height: 100vh;
 }
 
 
@@ -28,7 +29,7 @@ h2 {
     border-radius: 5px;
     background-size: 10px;
     justify-content: space-between;
-    border: 2px;
+    // border: 2px;
 
 
     background-position: right;
@@ -92,14 +93,14 @@ h2 {
     display: flex;
     font-size: 17px;
     position: relative;
-    right: 5rem;
+    // right: 5rem;
     float: right
 }
 
 
 
 h5 {
-    font-size: 2rem;
+    font-size: 20px;
     font-family: Quicksand;
     font-weight: bold;
     margin-bottom: $large;
@@ -123,7 +124,7 @@ h5 {
 }
 
 .options-container {
-    height: 240px;
+    height: 200px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -133,18 +134,22 @@ h5 {
     justify-content: center;
     display: inline-block;
     width: 50%;
-
-    margin: $small auto;
+    font-size: 20px;
+    margin: -0.5rem, auto;
     outline: none;
     box-shadow: none;
     background-color: transparent;
+    height: 80px;
 
 }
 
 .option-container button {
     background-color: darken(rgb(56, 56, 204), 10%);
     box-shadow: $shadow;
-    transition: 0.1s linear all
+    transition: 0.1s linear all;
+    height: 100%;
+
+
 }
 
 .option-container button:hover {
@@ -176,7 +181,8 @@ h5 {
     left: -20px;
     width: 70vw;
     margin-top: $small;
-    margin: 0 auto $small auto;
+    // margin: 0 auto $auto;
+    margin-left: 7%;
 
 
 }

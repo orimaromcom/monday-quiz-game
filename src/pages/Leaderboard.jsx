@@ -103,13 +103,13 @@ export default function Leaderboard() {
         <h1>Leaderboard</h1>
         <div>
           <input
-            placeholder="username"
+            placeholder="Please write your name"
             type="text"
             value={inputUsername}
             onChange={(evt) => setInputUsername(evt.target.value)}
           />
           <button id="save-button" onClick={handleSaveToLeaderboard}>
-            Save
+            Submit
           </button>
         </div>
       </header>
@@ -119,7 +119,7 @@ export default function Leaderboard() {
             <tr>
               <th>Username</th>
               <th>Score</th>
-              <th>Hints</th>
+              <th>Hints used</th>
               <th>Time</th>
             </tr>
           </thead>

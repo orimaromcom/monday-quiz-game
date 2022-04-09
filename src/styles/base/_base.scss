@@ -13,24 +13,29 @@ body {
   background-color: green;
   border-radius: 5px;
   font-weight: bold;
-  bottom: 100%;
-  left: 0%;
+
+
+  width: 20px;
 }
 
 .toast-invalid {
+  text-align: center;
   background-color: red;
   border-radius: 5px;
   font-weight: bold;
+  width: 100px;
 }
 
 #toast-container {
-  width: 100px;
-  top: 10%;
-  right: 20%;
+  //width: 5%;
+  top: 20%;
+  left: 10rem;
+  ;
 }
 
 p.final {
-  font-size: 50px;
+  font-size: 40px;
+  margin-bottom: 20px;
 
 }
 
@@ -41,8 +46,8 @@ p.error {
 
 button.return,
 a.return {
-  position: relative;
-  top: 40px;
+  //position: relative;
+  //top: 40px;
   border: none;
   font-weight: bold;
   cursor: pointer;
