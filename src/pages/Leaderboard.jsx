@@ -15,7 +15,8 @@ export default function Leaderboard() {
   const history = useHistory();
   const [inputUsername, setInputUsername] = useState("");
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const { score, hints } = useSelector((state) => state);
+  const [isShowSaveButton, setIsShowSaveButton] = useState(true);
+  const { score } = useSelector((state) => state);
   const { getDuration } = useGlobalTimer();
 
   const handleBackToSettings = () => {
@@ -33,68 +34,32 @@ export default function Leaderboard() {
   const refreshLeaderboardData = async () => {
     const items = [];
     await localforage.iterate((value) => {
-      items.push({
-        ...value,
-        score: Number(value.score),
-        hints: Number(value.hintsCount),
-      });
+      items.push({ ...value, score: Number(value.score) });
     });
     items.sort((item1, item2) => item2.score - item1.score);
-    setLeaderboardData(items);
+    setLeaderboardData(items.slice(0, 10));
   };
 
-  const handleSaveToLeaderboard = async () => {
+  const handleSaveToLeaderboard = () => {
     let username, hintsCount, durationSeconds;
-
-    document.getElementById("save-button").style.visibility = "hidden";
 
     //fill them
     username = inputUsername;
     durationSeconds = getDuration();
-    hintsCount = hints;
 
-    const items = [];
-    await localforage.iterate((value) => {
-      items.push({
-        ...value,
-        score: Number(value.score),
-        hints: Number(value.hintsCount),
+    //save to db
+    localforage
+      .setItem(username, {
+        username,
+        score,
+        hintsCount,
+        durationSeconds,
+      })
+      .then(() => {
+        //refresh leaderboard data from db
+        refreshLeaderboardData();
+        setIsShowSaveButton(false);
       });
-    });
-
-    items.sort((item1, item2) => item2.score - item1.score);
-
-    if (items.length < 10) {
-      //save to db
-      localforage
-        .setItem(username, {
-          username,
-          score,
-          hintsCount,
-          durationSeconds,
-        })
-        .then(() => {
-          //refresh leaderboard data from db
-          refreshLeaderboardData();
-        });
-    } else {
-      let worstPlayer = items[items.length - 1];
-
-      if (score >= worstPlayer.score) {
-        //remove worst user from list
-        localforage.removeItem(worstPlayer.username).then(() => {
-          // Save my score instead
-          localforage.setItem(username, {
-            username,
-            score,
-            hintsCount,
-            durationSeconds,
-          });
-          //refresh leaderboard data from db
-          refreshLeaderboardData();
-        });
-      }
-    }
   };
 
   return (
@@ -103,29 +68,31 @@ export default function Leaderboard() {
         <h1>Leaderboard</h1>
         <div>
           <input
-            placeholder="Please write your name"
+            placeholder="username"
             type="text"
             value={inputUsername}
             onChange={(evt) => setInputUsername(evt.target.value)}
           />
-          <button id="save-button" onClick={handleSaveToLeaderboard}>
-            Submit
-          </button>
+          {isShowSaveButton && (
+            <button onClick={handleSaveToLeaderboard}>Save</button>
+          )}
         </div>
       </header>
       <article>
         <table>
           <thead>
             <tr>
+              <th>Rank</th>
               <th>Username</th>
               <th>Score</th>
-              <th>Hints used</th>
+              <th>Hints</th>
               <th>Time</th>
             </tr>
           </thead>
           <tbody>
-            {leaderboardData.map((item) => (
+            {leaderboardData.map((item, index) => (
               <tr key={item.username}>
+                <td>{index + 1}</td>
                 <td>{item.username}</td>
                 <td>{item.score}</td>
                 <td>{item.hintsCount}</td>

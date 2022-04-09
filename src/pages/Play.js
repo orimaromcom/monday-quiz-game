@@ -1,5 +1,5 @@
-import React, { Component, Fragment, useCallback } from "react";
-import { Button, CircularProgress, Typography, Box } from "@mui/material";
+import React, { Fragment, useCallback } from "react";
+import { CircularProgress, Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 import LifebuoyIcon from "mdi-react/LifebuoyIcon";
 import LightningIcon from "mdi-react/LightningBoltIcon";
@@ -214,71 +214,54 @@ const Play = () => {
               className={"audio-switch-button"}
               checked={isAudioOn}
               onChange={(evt) => {
-                console.log(evt);
                 setIsAudioOn(evt.target.checked);
               }}
             />
           </span>
-          <div className="title"></div>
+
           <h2>monday quiz</h2>
-          <div />
-          <div className="">
-            <div className="row-container">
-              <p>
-                <span>
-                  <LifebuoyIcon
-                    onClick={split}
-                    className="lifeline-icon"
-                    size={40}
-                  />
-                  {lifelines}
-                </span>
-                <span>
-                  <LightningIcon
-                    onClick={hint}
-                    className="lightning-icon"
-                    size={40}
-                  />
-                  {hints}
-                </span>
-              </p>
-              <p>
-                <span>
-                  <span className="lightning"></span>
-                </span>
-              </p>
-              <div
-                style={
-                  {
-                    // display: "flex",
-                    // position: "relative",
-                    // left: "-70px",
-                    // top: "8px",
-                  }
-                }
-              >
-                <TimerIcon className="timer-icon" size={40} />
-                <span
-                  style={{
-                    // display: "flex",
-                    // alignItems: "center",
-                    marginLeft: "7px",
-                    height: "40px",
-                    width: "12px",
-                  }}
-                >
-                  {currentCount}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
+
+          <div className="top-visuals row-container">
+            <span className="lifeline-indicators">
+              <span>
+                <LifebuoyIcon
+                  onClick={split}
+                  className="lifeline-icon"
+                  size={40}
+                />
+                {lifelines}
+              </span>
+              <span>
+                <LightningIcon
+                  onClick={hint}
+                  className="lightning-icon"
+                  size={40}
+                />
+                {hints}
+              </span>
+            </span>
             <p>
+              <span>
+                <span className="lightning"></span>
+              </span>
+            </p>
+            <div className="timer-section">
+              <TimerIcon className="timer-icon" size={40} />
+              <span
+                style={{
+                  marginLeft: "7px",
+                  height: "40px",
+                  width: "12px",
+                }}
+              >
+                {currentCount}
+              </span>
               <span className="questionNumber">
                 {questionIndex + 1} of {amount_of_question}
               </span>
-            </p>
+            </div>
           </div>
+          <div></div>
           <div className="lifelines"></div>
           <div className="score">
             Score: {score} / {response.results.length}

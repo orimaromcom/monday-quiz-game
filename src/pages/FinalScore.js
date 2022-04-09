@@ -23,17 +23,12 @@ const FinalScore = () => {
 
   // Tried to implement game started logic
   useEffect(() => {
-    console.log(startTime);
     let endTime = Date.now();
-    console.log(endTime);
     let gameDuration = endTime - startTime;
     gameDuration /= 1000;
     var seconds = Math.round(gameDuration);
-    console.log(seconds + " seconds");
-    console.log("Total game duartion" + gameDuration);
     stop();
   }, []);
-  // Tried to implement game started logic
 
   const handleBackToSettings = () => {
     dispatch(handleScoreChange(0));

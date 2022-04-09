@@ -16,11 +16,9 @@ function App() {
       <Route path="/instructions" exact component={QuizInstructions} />
       <Route path="/play" exact component={Play} />
       <Container maxWidth="sm">
-        <Box textAlign="center" mt={5}>
-          <Route path="/score" exact component={FinalScore} />
-          <Route path="/leaderboard" exact component={Leaderboard} />
-          <Route path="/settings" exact component={Settings} />
-        </Box>
+        <Route path="/score" exact component={FinalScore} />
+        <Route path="/leaderboard" exact component={Leaderboard} />
+        <Route path="/settings" exact component={Settings} />
       </Container>
     </Router>
   );
