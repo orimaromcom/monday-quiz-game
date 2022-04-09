@@ -226,19 +226,11 @@ const Play = () => {
               </span>
               <span className="lifeline-indicators">
                 <span>
-                  <LifebuoyIcon
-                    onClick={split}
-                    className="lifeline-icon"
-                    size={40}
-                  />
+                  <LifebuoyIcon className="lifeline-icon" size={40} />
                   {lifelines}
                 </span>
                 <span>
-                  <LightningIcon
-                    onClick={hint}
-                    className="lightning-icon"
-                    size={40}
-                  />
+                  <LightningIcon className="lightning-icon" size={40} />
                   {hints}
                 </span>
               </span>
