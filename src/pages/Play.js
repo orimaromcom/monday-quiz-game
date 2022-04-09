@@ -208,67 +208,57 @@ const Play = () => {
 
       <section className="questions">
         <header>
-          <span className="audio-switch">
-            {isAudioOn ? "🔉" : "🔇"}
-            <SwitchButton
-              className={"audio-switch-button"}
-              checked={isAudioOn}
-              onChange={(evt) => {
-                setIsAudioOn(evt.target.checked);
-              }}
-            />
-          </span>
-
           <h2>monday quiz</h2>
 
           <div className="top-visuals row-container">
-            <span className="lifeline-indicators">
-              <span>
-                <LifebuoyIcon
-                  onClick={split}
-                  className="lifeline-icon"
-                  size={40}
+            <div className="indicators-container">
+              <span className="audio-switch">
+                {isAudioOn ? "🔉" : "🔇"}
+                <SwitchButton
+                  className={"audio-switch-button"}
+                  checked={isAudioOn}
+                  onChange={(evt) => {
+                    setIsAudioOn(evt.target.checked);
+                  }}
                 />
-                {lifelines}
               </span>
-              <span>
-                <LightningIcon
-                  onClick={hint}
-                  className="lightning-icon"
-                  size={40}
-                />
-                {hints}
+              <span className="lifeline-indicators">
+                <span>
+                  <LifebuoyIcon
+                    onClick={split}
+                    className="lifeline-icon"
+                    size={40}
+                  />
+                  {lifelines}
+                </span>
+                <span>
+                  <LightningIcon
+                    onClick={hint}
+                    className="lightning-icon"
+                    size={40}
+                  />
+                  {hints}
+                </span>
               </span>
-            </span>
-            <p>
-              <span>
-                <span className="lightning"></span>
-              </span>
-            </p>
+            </div>
+
             <div className="timer-section">
-              <TimerIcon className="timer-icon" size={40} />
-              <span
-                style={{
-                  marginLeft: "7px",
-                  height: "40px",
-                  width: "12px",
-                }}
-              >
-                {currentCount}
-              </span>
+              <div className="aligned-row">
+                <TimerIcon className="timer-icon" size={40} />
+                <span>{currentCount}</span>
+              </div>
               <span className="questionNumber">
                 {questionIndex + 1} of {amount_of_question}
               </span>
             </div>
           </div>
-          <div></div>
-          <div className="lifelines"></div>
           <div className="score">
             Score: {score} / {response.results.length}
           </div>
-          <h5>{decode(response.results[questionIndex].question)}</h5>
         </header>
+
         <article>
+          <h5>{decode(response.results[questionIndex].question)}</h5>
           <div className="options-container">
             {options.map((data) => (
               <div key={data} className="option-container">
