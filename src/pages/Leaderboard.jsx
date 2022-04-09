@@ -68,15 +68,13 @@ export default function Leaderboard() {
         <h1>Leaderboard</h1>
         <div>
           <input
-            placeholder="username"
+            placeholder="Enter your name and click save"
             type="text"
             value={inputUsername}
             onChange={(evt) => setInputUsername(evt.target.value)}
           />
           {isShowSaveButton && (
-            <button onClick={handleSaveToLeaderboard}>
-              Enter your name here
-            </button>
+            <button onClick={handleSaveToLeaderboard}>Save here</button>
           )}
         </div>
       </header>

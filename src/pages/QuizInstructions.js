@@ -14,35 +14,35 @@ const QuizInstructions = () => (
      <title>Instructions Page</title>
     </Helmet>
     <div className="instructions container">
-      <div className="title">How to play the game</div>
+      <div className="instruction-title">How to play the game</div>
       <ul className="browser-default" id="main-list">
-        <li>The game is 10 minutes bla bla bla</li>
-        <li>The game has 10 questions</li>
+        <li>The game default has 10 random questions</li>
+        <li>The player has 30 seconds to answer on each question</li>
         <li>
-          Each question has different score
+          Each correct answer is 1 point
           <img src={imageNum1} alt="Quiz instruction #1" />
         </li>
         <li>This is the image2 title</li>
         <img src={imageNum2} alt="Quiz instruction #2" />
         <li>
-          Each game has 2 lifelines
+          Each game has 3 lifelines
           <ul id="sublist">
-            <li>2 50-50 chances</li>
-            <li>5 hints</li>
+            <li>1 50-50 chances</li>
+            <li>2 hints</li>
           </ul>
         </li>
         <li>
-          Selecting a 50-50 lifelines
-          <LifebuoyIcon className="lifeline-icon" size={24} />
+          Selecting a 50-50 lifeline
+          <LifebuoyIcon className="lifeline-icon" size={24} /> will leave only 2 options
           <img src={imageNum3} alt="Quiz instruction #3" />
         </li>
         <li>
-          You can use hint with this icon:
-          <LightningIcon className="lightning-icon" size={24} />
-          <img src={imageNum4} alt="Quiz instruction #4" />
+          Selecting a hint
+          <LightningIcon className="lightning-icon" size={24} /> will remove one incorrect option
+        <img src={imageNum4} alt="Quiz instruction #4" />
         </li>
         <li>You cn quit whenever you want</li>
-        <li>the timer will run</li>
+        <li>You can add yourself to the Leaderboard if you like</li>
         <div className="back-button-container">
           <Link to="/" className="back-button">
             Back
