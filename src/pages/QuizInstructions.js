@@ -11,7 +11,7 @@ import imageNum4 from "../assets/img/imageNum4.jpg";
 const QuizInstructions = () => (
   <Fragment>
     <Helmet>
-      <title>Instructions Page</title>
+     <title>Instructions Page</title>
     </Helmet>
     <div className="instructions container">
       <div className="title">How to play the game</div>

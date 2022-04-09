@@ -74,7 +74,9 @@ export default function Leaderboard() {
             onChange={(evt) => setInputUsername(evt.target.value)}
           />
           {isShowSaveButton && (
-            <button onClick={handleSaveToLeaderboard}>Save</button>
+            <button onClick={handleSaveToLeaderboard}>
+              Enter your name here
+            </button>
           )}
         </div>
       </header>
