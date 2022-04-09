@@ -60,12 +60,12 @@ const Play = () => {
     if (!isAudioOn) return;
     document.getElementById(audioElementKey).play();
   };
-
+  let counter = 30;
   const [options, setOptions] = useState([]);
 
-  const [currentCount, setCount] = useState(10);
+  const [currentCount, setCount] = useState(counter);
   const timer = () => setCount(currentCount - 1);
-  let counter = 30;
+
   useEffect(() => {
     if (currentCount <= 0) {
       handleClickAnswer(undefined, true);
@@ -81,7 +81,7 @@ const Play = () => {
       const question = response.results[questionIndex];
       let answers = [...question.incorrect_answers];
       answers.splice(
-        getRandomInt(question.incorrect_answers.length),
+        getRandomInt(question.incorrect_answers.length + 1),
         0,
         question.correct_answer
       );
@@ -91,8 +91,8 @@ const Play = () => {
   }, [response, questionIndex]);
 
   useEffect(() => {
-    dispatch(handleResetToDefault())
-  }, [])
+    dispatch(handleResetToDefault());
+  }, []);
 
   if (loading) {
     return (
