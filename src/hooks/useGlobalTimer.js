@@ -1,17 +1,15 @@
-let duration;
+let startTime,
+  duration = 0;
 
 export default function useGlobalTimer() {
   let timer;
 
   const start = () => {
-    duration = 0;
-    timer = setInterval(() => {
-      duration++;
-    }, 1e3);
+    startTime = Date.now();
   };
 
   const stop = () => {
-    clearInterval(timer);
+    duration = (Date.now() - startTime) / 1e3;
   };
 
   const getDuration = () => {
