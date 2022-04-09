@@ -6,7 +6,7 @@ import {
   CHANGE_TYPE,
   CHANGE_HINTS,
   CHANGE_LIFELINES,
-  GAME_STARTED,
+  RESET_DEFAULT_VALUES,
 } from "./actionsTypes";
 
 const initialState = {
@@ -17,7 +17,6 @@ const initialState = {
   score: 0,
   hints: 2,
   lifelines: 1,
-  startTime: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,10 +57,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         lifelines: action.payload,
       };
-    case GAME_STARTED:
+    case RESET_DEFAULT_VALUES:
       return {
         ...state,
-        startTime: action.payload,
+        score: initialState.score,
+        lifelines: initialState.lifelines,
+        hints: initialState.hints,
       };
     default:
       return state;

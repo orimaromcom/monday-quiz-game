@@ -30,14 +30,6 @@ const FinalScore = () => {
     stop();
   }, []);
 
-  const handleBackToSettings = () => {
-    dispatch(handleScoreChange(0));
-    dispatch(handleAmountChange(10));
-    dispatch(handleHintsChange(2));
-    dispatch(handleLifelinesChange(1));
-    history.push("/");
-  };
-
   return (
     <Fragment>
       <Helmet>
@@ -47,13 +39,9 @@ const FinalScore = () => {
         <p className="final" variant="h3" fontWeight="bold" size="20">
           Your Final Score: {score}
         </p>
-        <button
-          className="return"
-          onClick={handleBackToSettings}
-          variant="outlined"
-        >
+        <Link className="return" to={"/"} variant="outlined">
           Back to home page
-        </button>
+        </Link>
         <Link to={"/leaderboard"} className="return">
           Leaderboard
         </Link>

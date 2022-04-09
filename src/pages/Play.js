@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import useAxios from "../hooks/useAxios";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
-import { handleGameStart, handleScoreChange } from "../redux/actions";
+import { handleResetToDefault, handleScoreChange } from "../redux/actions";
 import { handleHintsChange } from "../redux/actions";
 import { handleLifelinesChange } from "../redux/actions";
 import { decode } from "html-entities";
@@ -86,15 +86,13 @@ const Play = () => {
         question.correct_answer
       );
       setOptions(answers);
-      dispatch(handleScoreChange(score));
-      dispatch(handleLifelinesChange(lifelines));
-      dispatch(handleHintsChange(hints));
+      console.log("use effect in play.js: ", { score, lifelines, hints });
     }
   }, [response, questionIndex]);
 
   useEffect(() => {
-    dispatch(handleGameStart(Date.now()));
-  }, []);
+    dispatch(handleResetToDefault())
+  }, [])
 
   if (loading) {
     return (

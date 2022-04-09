@@ -6,7 +6,7 @@ import {
   CHANGE_SCORE,
   CHANGE_HINTS,
   CHANGE_LIFELINES,
-  GAME_STARTED,
+  RESET_DEFAULT_VALUES,
 } from "./actionsTypes";
 
 export const handleCategoryChange = (payload) => ({
@@ -44,7 +44,7 @@ export const handleLifelinesChange = (payload) => ({
   payload,
 });
 
-export const handleGameStart = (payload) => ({
-  type: GAME_STARTED,
-  payload,
-});
+export const handleResetToDefault = () => ({
+  type: RESET_DEFAULT_VALUES,
+})
+
