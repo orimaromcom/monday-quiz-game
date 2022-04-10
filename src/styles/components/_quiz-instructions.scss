@@ -66,9 +66,9 @@ img {
     height: 50%;
 }
 
-@media (max-width: $medium-breakpoint) {
+ @media (max-width: $medium-breakpoint) {
     .instructions img {
         width: 100% !important;
         height: 150% !important;
     }
-}
+ }  

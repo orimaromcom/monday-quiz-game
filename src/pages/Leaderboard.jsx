@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -63,54 +64,59 @@ export default function Leaderboard() {
   };
 
   return (
-    <section>
-      <header>
-        <h1>Leaderboard</h1>
-        <div>
-          <input
-            placeholder="Enter your name and click save"
-            type="text"
-            value={inputUsername}
-            onChange={(evt) => setInputUsername(evt.target.value)}
-          />
-          {isShowSaveButton && (
-            <button onClick={handleSaveToLeaderboard}>Save here</button>
-          )}
-        </div>
-      </header>
-      <article>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Username</th>
-              <th>Score</th>
-              <th>Hints</th>
-              <th>Time [seconds]</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leaderboardData.map((item, index) => (
-              <tr key={item.username}>
-                <td>{index + 1}</td>
-                <td>{item.username}</td>
-                <td>{item.score}</td>
-                <td>{item.hintsCount}</td>
-                <td>{item.durationSeconds}</td>
+    <Fragment>
+      <Helmet>
+        <title>Leaderboard</title>
+      </Helmet>
+      <section>
+        <header>
+          <h1>Leaderboard</h1>
+          <div>
+            <input
+              placeholder="Enter your name and click save"
+              type="text"
+              value={inputUsername}
+              onChange={(evt) => setInputUsername(evt.target.value)}
+            />
+            {isShowSaveButton && (
+              <button onClick={handleSaveToLeaderboard}>Save here</button>
+            )}
+          </div>
+        </header>
+        <article>
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Hints</th>
+                <th>Time [seconds]</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </article>
-      <footer>
-        <button
-          className="return"
-          onClick={handleBackToSettings}
-          variant="outlined"
-        >
-          Back to home page
-        </button>
-      </footer>
-    </section>
+            </thead>
+            <tbody>
+              {leaderboardData.map((item, index) => (
+                <tr key={item.username}>
+                  <td>{index + 1}</td>
+                  <td>{item.username}</td>
+                  <td>{item.score}</td>
+                  <td>{item.hintsCount}</td>
+                  <td>{item.durationSeconds}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
+        <footer>
+          <button
+            className="return"
+            onClick={handleBackToSettings}
+            variant="outlined"
+          >
+            Back to home page
+          </button>
+        </footer>
+      </section>
+    </Fragment>
   );
 }
