@@ -33,8 +33,11 @@ body {
 }
 
 p.final {
-  font-size: 40px;
+  margin-top: 20px;
+
+  font-size: 35px;
   margin-bottom: 20px;
+  text-align: center;
 
 }
 
@@ -54,4 +57,9 @@ a.return {
   background: darken(rgb(56, 56, 204), 10%);
   color: white;
   margin: 8px;
+  display: flex;
+  width: 50%;
+  text-align: center;
+  margin-left: 20vw;
+
 }

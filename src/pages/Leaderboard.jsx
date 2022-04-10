@@ -90,7 +90,6 @@ export default function Leaderboard() {
                 <th>Rank</th>
                 <th>Username</th>
                 <th>Score</th>
-                <th>Hints</th>
                 <th>Time [seconds]</th>
               </tr>
             </thead>
@@ -100,7 +99,6 @@ export default function Leaderboard() {
                   <td>{index + 1}</td>
                   <td>{item.username}</td>
                   <td>{item.score}</td>
-                  <td>{item.hintsCount}</td>
                   <td>{item.durationSeconds}</td>
                 </tr>
               ))}
