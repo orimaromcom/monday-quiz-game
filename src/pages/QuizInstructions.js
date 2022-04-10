@@ -46,7 +46,7 @@ const QuizInstructions = () => (
         </li>
   
         
-        <li>You cn quit whenever you want</li>
+        <li>You can quit whenever you want</li>
         <li>You can add yourself to the Leaderboard at the end of the game</li>
         <div className="back-button-container">
           <Link to="/" className="back-button">

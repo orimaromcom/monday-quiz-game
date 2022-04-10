@@ -29,7 +29,7 @@ body {
 #toast-container {
   top: 20%;
   left: 10rem;
-  ;
+  
 }
 
 p.final {
@@ -58,8 +58,10 @@ a.return {
   color: white;
   margin: 8px;
   display: flex;
-  width: 50%;
+  //flex-direction: column;
+  display:inline-block;
+   width: 50%;
   text-align: center;
-  margin-left: 20vw;
+  margin-left: 130px;
 
 }
