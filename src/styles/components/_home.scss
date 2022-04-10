@@ -76,6 +76,10 @@
     #select-questions {
         background: teal;
     }
+    #select-questions:hover {
+        background-color: darken(teal, 10%);
+        box-shadow: $shadow;
+    }
 
     .auth-container {
         width: 100%;
