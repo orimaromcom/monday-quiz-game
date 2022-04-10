@@ -6,6 +6,9 @@ import LightningIcon from "mdi-react/LightningBoltIcon";
 import imageNum1 from "../assets/img/playScreen.PNG";
 import imageNum2 from "../assets/img/selectQuestions.PNG";
 import imageNum3 from "../assets/img/correctAnswerCut.png";
+import imageNum4 from "../assets/img/wrongAnswerCut.png";
+import imageNum5 from "../assets/img/timeoutCut.png";
+import SwitchButton from "../components/SwitchButton";
 
 const QuizInstructions = () => (
   <Fragment>
@@ -21,18 +24,21 @@ const QuizInstructions = () => (
           Each correct answer is 1 point
           <img src={imageNum1} alt="Quiz instruction #1" />
         </li>
-        <li>You can also select the question Category, Difficulty, Type and Amount by clicking the Select Questions button </li>
-        <img src={imageNum2} alt="Quiz instruction #2" />
         <li>
-          Correct answer will be celebrated
+          You can also select the question Category, Difficulty, Type and Amount
+          by clicking the Select Questions button{" "}
         </li>
+        <img src={imageNum2} alt="Quiz instruction #2" />
+        <li>Correct answer will be celebrated</li>
         <img src={imageNum3} alt="Quiz instruction #3" />
+        <li>Wrong answer will be noted</li>
+        <img src={imageNum4} alt="Quiz instruction #4" />
+        <li>Question time elapsed will be noted</li>
+        <img src={imageNum5} alt="Quiz instruction #5" />
         <li>
           Each game has 3 lifelines:
-          
-            <li>1 50-50 chances</li>
-            <li>2 hints</li>
-      
+          <li>1 50-50 chances</li>
+          <li>2 hints</li>
         </li>
         <li>
           Selecting a 50:50 lifeline
@@ -40,13 +46,16 @@ const QuizInstructions = () => (
           options
         </li>
         <li>
-        Selecting a Hint
+          Selecting a Hint
           <LightningIcon className="lightning-icon" size={24} /> will remove one
           incorrect option
         </li>
-  
-        
+
         <li>You can quit whenever you want</li>
+        <li>
+          You can mute the game sound effects by clicking the switch button{" "}
+          <SwitchButton className={"audio-switch-button"} />
+        </li>
         <li>You can add yourself to the Leaderboard at the end of the game</li>
         <div className="back-button-container">
           <Link to="/" className="back-button">

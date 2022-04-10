@@ -1,10 +1,10 @@
  .instructions {
     background-color: rgb(240, 245, 250);
-    border: 1px solid darken($off-white, 10%);
-   text-align: left;
-    padding: $large;
-    padding-left: 1rem;
-    padding-right: 1rem;
+   border: 1px solid darken($off-white, 10%);
+  
+   padding: $large;
+ 
+
 } 
 
 .instruction-title {
@@ -28,8 +28,7 @@
 }
 
 .browser-default {
-  //  padding-left: 180px;
-   // padding-right: 30px;
+
     margin-top: 10px;
     margin-bottom: 15px;
 }
@@ -65,9 +64,3 @@
     height: 50%;
 } 
 
-/*  @media (max-width: $medium-breakpoint) {
-    .instructions img {
-        width: 100% !important;
-        height: 150% !important;
-    }
- }   */
