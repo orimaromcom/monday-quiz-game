@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 import useGlobalTimer from "../hooks/useGlobalTimer";
 
 const FinalScore = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
+   useDispatch();
+   useHistory();
   const { score, startTime } = useSelector((state) => state);
   const { stop, getDuration } = useGlobalTimer();
 

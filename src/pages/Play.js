@@ -127,6 +127,9 @@ const Play = () => {
       return;
     }
     const question = response.results[questionIndex];
+    console.log(response.results)
+    console.log(response.results[questionIndex])
+
 
     if (e.target.textContent == question.correct_answer) {
       dispatch(handleScoreChange(score + 1));

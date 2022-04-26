@@ -37,8 +37,8 @@ const QuizInstructions = () => (
         <img src={imageNum5} alt="Quiz instruction #5" />
         <li>
           Each game has 3 lifelines:
-          <li>1 50-50 chances</li>
-          <li>2 hints</li>
+          <li>1 50:50 </li>
+          <li>2 Hints</li>
         </li>
         <li>
           Selecting a 50:50 lifeline
