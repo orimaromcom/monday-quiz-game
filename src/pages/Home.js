@@ -8,14 +8,14 @@ const Home = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>monday quiz - Home Page</title>
+        <title>Ori's quiz - Home Page</title>
       </Helmet>
       <div id="home">
         <section>
           <div style={{ textAlign: "center" }}>
             <RocketIcon className="rocket-icon" size={100} />
           </div>
-          <h1>monday quiz game</h1>
+          <h1>Ori's quiz game</h1>
 
           <div className="play-button-container">
             <ul>

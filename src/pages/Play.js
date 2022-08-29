@@ -127,9 +127,8 @@ const Play = () => {
       return;
     }
     const question = response.results[questionIndex];
-    console.log(response.results)
-    console.log(response.results[questionIndex])
-
+    console.log(response.results);
+    console.log(response.results[questionIndex]);
 
     if (e.target.textContent == question.correct_answer) {
       dispatch(handleScoreChange(score + 1));
@@ -213,7 +212,7 @@ const Play = () => {
 
       <section className="questions">
         <header>
-          <h2>monday quiz</h2>
+          <h2>Ori's quiz</h2>
 
           <div className="top-visuals row-container">
             <div className="indicators-container">
@@ -268,9 +267,7 @@ const Play = () => {
                   className="option"
                   style={{
                     backgroundColor:
-                      data === selectedButton
-                        ? backgroundColor
-                        : "rgb(56, 56, 204)",
+                      data === selectedButton ? backgroundColor : "rgb(56, 56, 204)",
                   }}
                 >
                   <p>{decode(data)}</p>
