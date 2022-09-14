@@ -8,6 +8,9 @@ I'm developing the best quiz game you'll ever see! I also make great coffee, and
 
 clone this repo, `yarn && yarn start` 🚀
 
+## Click the link to start playing:
+https://monday-quiz-game-ori-marom.netlify.app
+
 ## Author
 
 Ori Marom <ori.marom10@gmail.com>
